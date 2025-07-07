@@ -8,7 +8,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 items-center container mx-auto">
             <h1 className="text-5xl font-bold">Receitas Deliciosas</h1>
             <p className="text-xl">Descubra receitas simples e saborosas para todas as ocasiões</p>
-            <Link className="bg-amber-500 text-white font-bold rounded-lg px-3 py-2" href="/receitas">Ver todas as receitas</Link>
+            <Link className="bg-amber-500 hover:bg-amber-700 transition-colors text-white font-bold rounded-lg px-3 py-2" href="/receitas ">Ver todas as receitas</Link>
           </div>
         </section>
       }
