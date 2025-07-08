@@ -1,4 +1,5 @@
 import InfoPill from "@/components/InfoPill";
+import PreparationStep from "@/components/PreparationStep";
 import { recipes } from "@/lib/data";
 import { ChevronDown, ChevronLeft } from "lucide-react";
 import Image from "next/image";
@@ -20,7 +21,7 @@ export default function ReceitaPage({ params }: RecipePageProps) {
     return (
         <main className="flex-grow py-8">
             <div className="container mx-auto ">
-                <Link href="receitas" className="flex mb-6 text-orange-500 hover:text-orange-700" >
+                <Link href="/receitas" className="flex mb-6 text-orange-500 hover:text-orange-700" >
                     <ChevronLeft />
                     Voltar para receitas
                 </Link>
@@ -46,10 +47,10 @@ export default function ReceitaPage({ params }: RecipePageProps) {
 
                         {/*Infos de preparo*/}
                         <div className="flex gap-4">
-                            <InfoPill title="Preparo" info={recipe.prepTime}/>
-                            <InfoPill title="Cozimento" info={recipe.cookTime}/>
-                            <InfoPill title="Porções" info={recipe.servings}/>
-                            <InfoPill title="Categoria" info={recipe.category}/>
+                            <InfoPill title="Preparo" info={recipe.prepTime} />
+                            <InfoPill title="Cozimento" info={recipe.cookTime} />
+                            <InfoPill title="Porções" info={recipe.servings} />
+                            <InfoPill title="Categoria" info={recipe.category} />
                         </div>
 
                         {/*colunas*/}
@@ -67,7 +68,11 @@ export default function ReceitaPage({ params }: RecipePageProps) {
                             {/*Coluna do preparo*/}
                             <div>
                                 <h2 className="text-xl font-bold mb-4">Modo de preparo</h2>
-                                {/*TODO componente de passo de preparo*/}
+                                <ol className="space-y-3">
+                                    {recipe.instructions.map((instruction, index)=>(
+                                        <PreparationStep key = {instruction} index={index} description={instruction}/>
+                                    ))}
+                                </ol>
                             </div>
                         </div>
                     </div>
