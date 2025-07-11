@@ -46,7 +46,7 @@ export default function ReceitaPage({ params }: RecipePageProps) {
                         </div>
 
                         {/*Infos de preparo*/}
-                        <div className="flex gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                             <InfoPill title="Preparo" info={recipe.prepTime} />
                             <InfoPill title="Cozimento" info={recipe.cookTime} />
                             <InfoPill title="Porções" info={recipe.servings} />
@@ -54,7 +54,7 @@ export default function ReceitaPage({ params }: RecipePageProps) {
                         </div>
 
                         {/*colunas*/}
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2">
                             {/*coluna dos ingredientes*/}
                             <div>
                                 <h2 className="text-xl font-bold mb-4">Ingredientes</h2>
@@ -66,7 +66,7 @@ export default function ReceitaPage({ params }: RecipePageProps) {
                             </div>
 
                             {/*Coluna do preparo*/}
-                            <div>
+                            <div className="mt-6 sm:mt-0">
                                 <h2 className="text-xl font-bold mb-4">Modo de preparo</h2>
                                 <ol className="space-y-3">
                                     {recipe.instructions.map((instruction, index)=>(
